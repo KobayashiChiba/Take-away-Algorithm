@@ -1,0 +1,3 @@
+D:/University/计算思维/Take-away-Algorithm/build/CMakeFiles/gen_map.dir
+D:/University/计算思维/Take-away-Algorithm/build/CMakeFiles/ALL_BUILD.dir
+D:/University/计算思维/Take-away-Algorithm/build/CMakeFiles/ZERO_CHECK.dir
