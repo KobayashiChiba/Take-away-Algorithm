@@ -12,4 +12,4 @@ include_directories(${PROJECT_SOURCE_DIR}/src)
 # add_compile_options("-O2")
 
 file(GLOB_RECURSE everything ./src/*.cpp)
-add_executable(gen_map ${PROJECT_SOURCE_DIR}/gen_map.cpp ${everything})
+add_executable(gen_map ${PROJECT_SOURCE_DIR}/exec/gen_map.cpp ${everything})

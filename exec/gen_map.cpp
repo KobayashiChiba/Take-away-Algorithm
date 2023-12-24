@@ -3,8 +3,8 @@
 
 #include <iostream>
 #include <fstream>
-#include "MersenneTwister.h"
-#include "RandMap.h"
+#include "map/MersenneTwister.h"
+#include "map/RandMap.h"
 using namespace std;
 
 int main()
