@@ -1,0 +1,2 @@
+D:\C++\Take-away Algorithm\Debug\Take-away Algorithm.exe
+D:\C++\Take-away Algorithm\Debug\Take-away Algorithm.pdb
