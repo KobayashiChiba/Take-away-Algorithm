@@ -15,6 +15,6 @@ int main()
 	map.spawn();
 	// map.show_map(800, 600);
 	ZoneMap x = ZoneMap(16, 12, &map);
-	std::cerr << x.KL_Divergence() << std::endl;
+	std::cerr << x.KL_Divergance() << std::endl;
 	// system("pause");
 }

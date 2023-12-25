@@ -14,9 +14,9 @@ class ZoneMap {
 public:
   ZoneMap(int w, int h, RandMap* map = nullptr);
 
-  double KL_Divergence();
+  double KL_Divergance();
   
-  ZoneMap balance();
+  ZoneMap balance(double alpha, double beta);
 private:
   const int w, h; // refer to x and y
   int total_num_order{0}, total_num_worker{0};

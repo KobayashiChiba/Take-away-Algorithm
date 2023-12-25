@@ -1,6 +1,8 @@
 #include "zone.hpp"
 #include <cmath>
 #include <iostream>
+#include <random>
+#include <ctime>
 
 ZoneMap::ZoneMap(int w, int h, RandMap* map): w(w), h(h) {
   // WE WILL ASSUME AT LEAST ONE WORKER AT EACH ZONE.
@@ -25,7 +27,7 @@ ZoneMap::ZoneMap(int w, int h, RandMap* map): w(w), h(h) {
   }
 }
 
-double ZoneMap::KL_Divergence() {
+double ZoneMap::KL_Divergance() {
   double ans = 0;
   for(int i = 0; i < w; i ++) for(int j = 0; j < h; j ++) {
     double px = 1.00 * zone_info[i][j].num_orders / total_num_order;
@@ -34,8 +36,25 @@ double ZoneMap::KL_Divergence() {
     ans += (1.00 * zone_info[i][j].num_orders / total_num_order) * std::log(px / qx);
   }
   return ans;
-}
+} 
 
-ZoneMap ZoneMap::balance() {
+const int dx[4] = {1, 0, -1, 0};
+const int dy[4] = {0, 1, 0, -1};
+struct Changes {
+  int to[4] {0, 0, 0, 0};
+};
+
+ZoneMap ZoneMap::balance(double alpha, double beta) { // alpha * dist + beta * divergance * total_num_order
+  std::mt19937 rd(time(0));
+
+  std::vector < std::vector<Changes> > changes(w, std::vector<Changes>(h));
+  double temperature = 0.0;
+  
+  for(int i = 0; i < w; i ++) {
+    for(int j = 0; j < h; j ++) {
+      
+    }
+  }
+  
   return ZoneMap(w, h, nullptr);
 }

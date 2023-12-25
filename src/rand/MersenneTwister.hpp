@@ -2,7 +2,7 @@
 #define MERSENNETWISTER_HPP_
 
 #include <vector>
-using namespace std;
+// using namespace std;
 
 #define ABS(x) ((x)>=0?(x):-(x))
 
@@ -31,13 +31,13 @@ Type& Draw(int n, Type object[])        //�ȸ��ʳ�ǩ
 }
 
 template<class Type>
-Type& Draw(vector<Type>& object)       //��vector�����еȸ��ʳ�ǩ
+Type& Draw(std::vector<Type>& object)       //��vector�����еȸ��ʳ�ǩ
 {
     return object[Rand(object.size())];
 }
 
 template<class Type>
-vector<Type> Draw(vector<Type>& object,int n)       //��vector�����еȸ��ʳ�ȡn������
+std::vector<Type> Draw(std::vector<Type>& object,int n)       //��vector�����еȸ��ʳ�ȡn������
 {
     if (n >= object.size())
     {
@@ -46,8 +46,8 @@ vector<Type> Draw(vector<Type>& object,int n)       //��vector�����
     else
     {
         int nd = 0;
-        vector<int> nums;
-        vector<Type> result;
+        std::vector<int> nums;
+        std::vector<Type> result;
         while (nd < n)
         {
             int r=Rand(object.size());
