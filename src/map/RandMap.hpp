@@ -3,7 +3,6 @@
 
 #include <vector>
 #include "rand/PoissonSampling.hpp"
-using namespace std;
 
 class point
 {
@@ -37,8 +36,8 @@ public:
 
 	double get_x_max() {return x_max;}
 	double get_y_max() {return x_max;}
-	vector<settlement>& get_settlement_list() {return settlement_list;}
-	vector<point>& get_point_list() {return point_list;}
+	std::vector<settlement>& get_settlement_list() {return settlement_list;}
+	std::vector<point>& get_point_list() {return point_list;}
 private:
 	/*��������*/
 	double x_max=8000;		//��ͼ���ȣ�m��
@@ -54,8 +53,8 @@ private:
 	int nn_shop_max = 50;		//��Ȧ�ܶ����ֵ
 	int nn_home_min = 50;		//С���ܶ���Сֵ
 	int nn_home_max = 100;		//С���ܶ����ֵ
-	vector<settlement> settlement_list;
-	vector<point> point_list;
+	std::vector<settlement> settlement_list;
+	std::vector<point> point_list;
 };
 
 #endif

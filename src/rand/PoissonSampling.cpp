@@ -8,10 +8,10 @@ Vec2 InsideUnitSphere()
     return { (sqrt(r) * cos(theta)), (sqrt(r) * sin(theta)) };
 }
 
-vector<Vec2> FastPoissonDiscSampling(Vec2 range, int threshold)
+std::vector<Vec2> FastPoissonDiscSampling(Vec2 range, int threshold)
 {
     // boost::timer t;
-    vector<Vec2> list;
+    std::vector<Vec2> list;
     // ���Դ�������
     constexpr int max_retry = 20;
     // n ��ֵ���� sqrt(ά��)
@@ -24,7 +24,7 @@ vector<Vec2> FastPoissonDiscSampling(Vec2 range, int threshold)
     int cols = ceil(range.x / cell_size);
     int rows = ceil(range.y / cell_size);
     // �������
-    vector<vector<int>> grids;
+    std::vector<std::vector<int>> grids;
     grids.resize(rows);
     for (auto& row : grids)
     {
@@ -41,7 +41,7 @@ vector<Vec2> FastPoissonDiscSampling(Vec2 range, int threshold)
     list.push_back(start);
     grids[row][col] = start_key;
 
-    vector<int> active_list;
+    std::vector<int> active_list;
     active_list.push_back(start_key);
 
     double r = threshold;

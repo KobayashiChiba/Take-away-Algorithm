@@ -1,7 +1,6 @@
 #ifndef POISSION_SAMPLING_HPP_
 #define POISSION_SAMPLING_HPP_
 #include<vector>
-using namespace std;
 
 template<typename T>
 class Vec2_
@@ -71,6 +70,6 @@ public:
 
 typedef Vec2_<double> Vec2;
 
-vector<Vec2> FastPoissonDiscSampling(Vec2 range, int threshold);
+std::vector<Vec2> FastPoissonDiscSampling(Vec2 range, int threshold);
 
 #endif

@@ -4,7 +4,6 @@
 #include <vector>
 #include <cmath>
 #include "MersenneTwister.hpp"
-using namespace std;
 
 bool isInit;
 int index;
@@ -12,7 +11,7 @@ unsigned int MT[624];
 
 void srand(int seed)
 {
-    cout << seed << endl;
+    std::cout << seed << std::endl;
     index = 0;
     isInit = 1;
     MT[0] = seed;

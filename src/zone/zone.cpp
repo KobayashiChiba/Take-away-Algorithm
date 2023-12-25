@@ -13,8 +13,8 @@ ZoneMap::ZoneMap(int w, int h, RandMap* map): w(w), h(h) {
   double width_y = map->get_y_max() / h;
   
   for(auto pt : map->get_point_list()) {
-    int x = min(w - 1, (int)floor(pt.x / width_x));
-    int y = min(h - 1, (int)floor(pt.y / width_y));
+    int x = std::min(w - 1, (int)floor(pt.x / width_x));
+    int y = std::min(h - 1, (int)floor(pt.y / width_y));
     switch(pt.type) {
       case 0: // an order
         zone_info[x][y].num_orders ++, total_num_order ++; break;

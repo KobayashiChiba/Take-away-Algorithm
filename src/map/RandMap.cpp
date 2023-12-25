@@ -45,12 +45,12 @@ settlement RandMap::spawn_settlement(Vec2 vec2, int type)
 
 int RandMap::spawn()
 {
-    vector<Vec2> s_shop_list = FastPoissonDiscSampling({ 0.8 * x_max,0.8 * y_max }, dn_shop);
+    std::vector<Vec2> s_shop_list = FastPoissonDiscSampling({ 0.8 * x_max,0.8 * y_max }, dn_shop);
     for (auto vec2 : s_shop_list)
     {
         settlement_list.push_back(spawn_settlement(vec2, 0));
     }
-    vector<Vec2> s_home_list = FastPoissonDiscSampling({ 0.8 * x_max,0.8 * y_max }, dn_home);
+    std::vector<Vec2> s_home_list = FastPoissonDiscSampling({ 0.8 * x_max,0.8 * y_max }, dn_home);
     for (auto vec2 : s_home_list)
     {
         settlement_list.push_back(spawn_settlement(vec2, 1));
@@ -76,7 +76,7 @@ int RandMap::spawn()
             break;
         }
     }
-    vector<Vec2> s_man_list = FastPoissonDiscSampling({ 0.8 * x_max,0.8 * y_max }, dn_man);
+    std::vector<Vec2> s_man_list = FastPoissonDiscSampling({ 0.8 * x_max,0.8 * y_max }, dn_man);
     for (auto vec2 : s_man_list)
     {
         point pr;
