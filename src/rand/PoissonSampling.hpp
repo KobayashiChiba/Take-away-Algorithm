@@ -1,6 +1,7 @@
 #ifndef POISSION_SAMPLING_HPP_
 #define POISSION_SAMPLING_HPP_
-#include<vector>
+#include <vector>
+#include <cmath>
 
 template<typename T>
 class Vec2_
@@ -55,7 +56,7 @@ public:
     }
 
     // ��ȡ�����ĳ���
-    double Magnitude() { return sqrt(x * x + y * y); }
+    double Magnitude() { return std::sqrt(x * x + y * y); }
 
     // ����ת��
     template<typename OtherType>

@@ -109,7 +109,7 @@ Type& Draw(int n, Type object[], int weight[], int& rand)      //��Ȩ�س�
     {
         weight_sum[i] = weight_sum[i - 1] + weight[i];
     }
-    int rand = Rand(weight_sum[n - 1]);
+    rand = Rand(weight_sum[n - 1]);
     int i = 0;
     while (rand > weight_sum[i])
     {

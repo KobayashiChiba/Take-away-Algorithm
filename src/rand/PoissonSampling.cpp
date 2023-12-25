@@ -48,7 +48,7 @@ std::vector<Vec2> FastPoissonDiscSampling(Vec2 range, int threshold)
     while (active_list.size() > 0)
     {
         // ���Ѿ��еĲ���������ȡһ����, ���������Χ�����µĲ�����
-        auto key = active_list[Rand(unsigned int(active_list.size()))];
+        auto key = active_list[Rand(static_cast<unsigned int>(active_list.size()))];
         // auto key = active_list[0];
         auto point = list[key];
         bool found = false;

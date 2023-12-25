@@ -15,10 +15,12 @@ public:
   ZoneMap(int w, int h, RandMap* map = nullptr);
 
   double KL_Divergance();
-  
-  ZoneMap balance(double alpha, double beta);
+  void print();
+  double balance(double alpha, double beta);
 private:
+  double divergance(int i, int j);
   const int w, h; // refer to x and y
+  double width_x, width_y;
   int total_num_order{0}, total_num_worker{0};
   std::vector<std::vector<ZoneInfo>> zone_info;
 };
