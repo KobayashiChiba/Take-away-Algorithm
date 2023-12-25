@@ -2,7 +2,7 @@
 #define RANDMAP_HPP_
 
 #include <vector>
-#include "PoissonSampling.h"
+#include "rand/PoissonSampling.hpp"
 using namespace std;
 
 class point
@@ -28,6 +28,18 @@ public:
 
 class RandMap
 {
+public:
+	int spawn();
+	
+	settlement spawn_settlement(Vec2 vec2,int type);
+	
+	void show_map(int w,int h);
+
+	double get_x_max() {return x_max;}
+	double get_y_max() {return x_max;}
+	vector<settlement>& get_settlement_list() {return settlement_list;}
+	vector<point>& get_point_list() {return point_list;}
+private:
 	/*��������*/
 	double x_max=8000;		//��ͼ���ȣ�m��
 	double y_max=6000;		//��ͼ�߶ȣ�m��
@@ -44,10 +56,6 @@ class RandMap
 	int nn_home_max = 100;		//С���ܶ����ֵ
 	vector<settlement> settlement_list;
 	vector<point> point_list;
-public:
-	int spawn();
-	settlement spawn_settlement(Vec2 vec2,int type);
-	void show_map(int w,int h);
 };
 
 #endif

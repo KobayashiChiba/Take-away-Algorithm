@@ -1,5 +1,5 @@
-#include "RandMap.h"
-#include "MersenneTwister.h"
+#include "RandMap.hpp"
+#include "rand/MersenneTwister.hpp"
 // #include <graphics.h>
 #include <iostream>
 

@@ -1,5 +1,5 @@
-#include "PoissonSampling.h"
-#include "MersenneTwister.h"
+#include "PoissonSampling.hpp"
+#include "MersenneTwister.hpp"
 
 Vec2 InsideUnitSphere()
 {
