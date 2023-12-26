@@ -5,10 +5,12 @@
 #include <ctime>
 
 void ZoneMap::print() {
+  fprintf(stderr, "[");
   for(int i = 0; i < w; i ++) for(int j = 0; j < h; j ++) {
-    fprintf(stderr, " [%3d, %3d] %c", zone_info[i][j].num_orders, zone_info[i][j].num_worker, (j == h - 1 ? '\n' : ' '));
+    fprintf(stderr, "[%3d, %3d],%c", zone_info[i][j].num_orders, zone_info[i][j].num_worker, (j == h - 1 ? '\n' : ' '));
     // std::cerr << zone_info[i][j].num_orders << "," << zone_info[i][j].num_worker << (j == h - 1 ? '\n' : ' ');
   }
+  fprintf(stderr, "]\n");
 }
 
 ZoneMap::ZoneMap(int w, int h, RandMap* map): w(w), h(h) {
@@ -23,9 +25,9 @@ ZoneMap::ZoneMap(int w, int h, RandMap* map): w(w), h(h) {
     int x = std::min(w - 1, (int)floor(pt.x / width_x));
     int y = std::min(h - 1, (int)floor(pt.y / width_y));
     switch(pt.type) {
-      case 0: // an order
+      case 1: // an order
         zone_info[x][y].num_orders ++, total_num_order ++; break;
-      case 1: // a worker
+      case 0: // a worker
         zone_info[x][y].num_worker ++, total_num_worker ++; break;
     }
   }
@@ -68,10 +70,11 @@ double ZoneMap::balance(double alpha, double beta) { // alpha * dist + beta * di
   int amount = round(1.00 * total_num_worker / w / h * 20);
   double base = beta * total_num_order * KL_Divergance();
   std::cerr << "base cost = " << base << std::endl;
-  int people = 1;
-  int n_try = 10000000;
-  double success_rate = 0.01;
-  for(int epoch = 0; epoch < 10; epoch ++) {
+  int people = 1 << 10;
+  int n_try = 100000;
+  double success_rate = 0.4;
+  for(int epoch = 0; epoch < 10; epoch ++, n_try *= 1.1) {
+    people /= 2;
     for(int tr = 0; tr < n_try; tr ++) {
       int i = rd()%w, j = rd()%h, dir = rd()%4;
       int ni = i + dx[dir], nj = j + dy[dir];
@@ -112,10 +115,11 @@ double ZoneMap::balance(double alpha, double beta) { // alpha * dist + beta * di
       }
     }
     // people *= 0.7;
-    // success_rate *= 0.7;
+    success_rate *= 0.7;
     // n_try;
   }
   std::cerr << "final cost: " << base << std::endl;
   print();
+  return base;
   // return ZoneMap(w, h, nullptr);
 }
