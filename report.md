@@ -4,6 +4,8 @@
 <center>罗新阳, 2022013041</center>
 <center>王奋岐, 2020013263</center>
 
+git repo: https://github.com/KobayashiChiba/Take-away-Algorithm
+
 ### 研究主题 & 问题背景
 
 外卖是生活中的常见场景，现如今，人们对外卖的需求也与日俱增。随之而来的，外卖平台需要利用有限的外卖人数应对与日俱增的外卖订单数量。
